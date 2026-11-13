@@ -1,0 +1,98 @@
+import type { Tool } from "./types";
+
+export const tools: Tool[] = [
+  {
+    id: "t01",
+    slug: "agent-arch-selector",
+    title: "Agent 架构选型决策器",
+    description: "根据任务特征（复杂度、确定性、协作需求）推荐单 Agent / 多 Agent / 工作流方案。",
+    category: "架构选型",
+    component: "tool-arch-selector",
+    relatedTutorialSlugs: ["workflow-vs-agent", "enterprise-agent-architecture", "supervisor-pattern"],
+  },
+  {
+    id: "t02",
+    slug: "rag-config-estimator",
+    title: "RAG 参数配置与成本估算器",
+    description: "配置文档量、Chunk Size、Top-K、模型与查询量，估算索引与检索成本。",
+    category: "RAG",
+    component: "tool-rag-config",
+    relatedTutorialSlugs: ["chunking-strategy", "hybrid-search", "reranking", "rag-fundamentals"],
+  },
+  {
+    id: "t03",
+    slug: "token-cost-calculator",
+    title: "Agent Token 成本计算器",
+    description: "基于输入/输出 Token、请求量、模型单价估算月度成本（价格为可维护配置）。",
+    category: "成本",
+    component: "tool-token-cost",
+    relatedTutorialSlugs: ["token-cost", "agentops-overview"],
+  },
+  {
+    id: "t04",
+    slug: "multi-agent-selector",
+    title: "Multi-Agent 架构选择器",
+    description: "按协作模式需求推荐 Supervisor / Hierarchical / Swarm / Debate 等模式。",
+    category: "多智能体",
+    component: "tool-multi-agent-selector",
+    relatedTutorialSlugs: ["supervisor-pattern", "planner-executor-pattern", "multi-agent-communication"],
+  },
+  {
+    id: "t05",
+    slug: "mcp-server-checklist",
+    title: "MCP Server 设计清单",
+    description: "检查 MCP Server 的协议、工具设计、鉴权、错误处理与可观测性完备度。",
+    category: "MCP",
+    component: "tool-mcp-checklist",
+    relatedTutorialSlugs: ["mcp-server-development", "mcp-gateway", "mcp-fundamentals"],
+  },
+  {
+    id: "t06",
+    slug: "security-checklist",
+    title: "Agent Security Checklist",
+    description: "逐项核对 Prompt Injection 防护、最小权限、护栏、审计等企业 Agent 安全要求。",
+    category: "安全",
+    component: "tool-security-checklist",
+    relatedTutorialSlugs: ["ai-security-overview", "prompt-injection", "agent-guardrails"],
+  },
+  {
+    id: "t07",
+    slug: "production-readiness",
+    title: "Agent Production Readiness Checklist",
+    description: "评估 Agent 上线前的可观测性、容错、回退、评估与运维就绪度。",
+    category: "生产",
+    component: "tool-production-checklist",
+    relatedTutorialSlugs: ["agent-error-handling", "agentops-overview", "agent-evaluation"],
+  },
+  {
+    id: "t08",
+    slug: "tech-stack-selector",
+    title: "企业 AI 技术栈选型工具",
+    description: "根据团队规模、合规、云环境推荐模型网关、向量库、编排与部署技术栈。",
+    category: "选型",
+    component: "tool-tech-stack",
+    relatedTutorialSlugs: ["ai-platform-overview", "model-gateway", "agent-runtime"],
+  },
+  {
+    id: "t09",
+    slug: "project-complexity",
+    title: "Agent 项目复杂度评估器",
+    description: "从任务、数据、集成、合规维度评估项目复杂度与落地风险。",
+    category: "评估",
+    component: "tool-complexity",
+    relatedTutorialSlugs: ["enterprise-agent-architecture", "workflow-vs-agent"],
+  },
+  {
+    id: "t10",
+    slug: "architecture-generator",
+    title: "Enterprise AI Architecture Generator",
+    description: "按业务目标（客服/运维/分析/自动化）生成企业 AI 架构建议与组件清单。",
+    category: "架构",
+    component: "tool-architecture-generator",
+    relatedTutorialSlugs: ["enterprise-agent-architecture", "ai-platform-overview", "enterprise-solutions-overview"],
+  },
+];
+
+export function getTool(slug: string): Tool | undefined {
+  return tools.find((t) => t.slug === slug);
+}

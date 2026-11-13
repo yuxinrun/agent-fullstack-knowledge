@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors - Dark tech theme */
+  --color-bg: #0b1020;
+  --color-bg-secondary: #111827;
+  --color-surface: #172033;
+  --color-surface-2: #1d2940;
+  --color-text: #f8fafc;
+  --color-text-secondary: #a7b0c0;
+  --color-text-muted: #748094;
+  --color-primary: #38d6b0;
+  --color-accent: #7c8cff;
+  --color-border: #273449;
+
+  /* Typography */
+  --font-sans: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --page-gutter: clamp(1.125rem, 4vw, 3.5rem);
+  --section-space: clamp(4rem, 8vw, 7rem);
+  --grid-gap: 1.25rem;
+
+  /* Radius */
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(56, 214, 176, 0.28);
+  color: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3a55;
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #36476a;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Layout helpers */
+.container-page {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+/* Surface card */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 214, 176, 0.45);
+}
+
+/* Gradient glow (used sparingly) */
+.glow-primary {
+  background: radial-gradient(
+      120% 120% at 0% 0%,
+      rgba(56, 214, 176, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(120% 120% at 100% 0%, rgba(124, 140, 255, 0.14), transparent 55%);
+}
+
+.glow-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 214, 176, 0.5),
+    transparent
+  );
+  height: 1px;
+}
+
+/* Prose / tutorial body typography */
+.prose-content {
+  color: var(--color-text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose-content h2 {
+  font-size: 1.6rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.prose-content h3 {
+  font-size: 1.25rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  color: #e8edf7;
+}
+.prose-content p {
+  margin: 0.85rem 0;
+}
+.prose-content ul,
+.prose-content ol {
+  margin: 0.85rem 0;
+  padding-left: 1.4rem;
+}
+.prose-content li {
+  margin: 0.4rem 0;
+}
+.prose-content ul li {
+  list-style: none;
+  position: relative;
+}
+.prose-content ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.1rem;
+  top: 0.72rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+.prose-content strong {
+  color: #f3f6fb;
+  font-weight: 600;
+}
+.prose-content a.link {
+  color: var(--color-primary);
+  border-bottom: 1px dashed rgba(56, 214, 176, 0.5);
+}
+.prose-content blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin: 1.2rem 0;
+  color: var(--color-text-secondary);
+  background: rgba(124, 140, 255, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Code block */
+.code-block {
+  position: relative;
+  background: #0a0f1e;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 1.2rem 0;
+}
+.code-block pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.code-block code {
+  font-family: inherit;
+  color: #d7e0f0;
+}
+
+/* Lightweight token colors */
+.tok-kw {
+  color: #7c8cff;
+}
+.tok-str {
+  color: #38d6b0;
+}
+.tok-com {
+  color: #5f6b80;
+  font-style: italic;
+}
+.tok-num {
+  color: #f0b86e;
+}
+.tok-fn {
+  color: #8ad8ff;
+}
+.tok-type {
+  color: #c79bff;
+}
+
+/* Mermaid container */
+.mermaid-host {
+  background: #0a0f1e;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.mermaid-host svg {
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  display: block;
+}
+
+/* Table */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+.doc-table th,
+.doc-table td {
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.doc-table th {
+  background: var(--color-surface-2);
+  color: #e8edf7;
+  font-weight: 600;
+}
+.doc-table td {
+  color: var(--color-text-secondary);
+}
+
+/* Utility: text balance */
+.text-balance {
+  text-wrap: balance;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
