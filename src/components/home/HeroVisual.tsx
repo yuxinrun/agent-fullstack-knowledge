@@ -46,7 +46,7 @@ export default function HeroVisual() {
               y1={pa.y}
               x2={pb.x}
               y2={pb.y}
-              stroke="#273449"
+              stroke="var(--color-border)"
               strokeWidth={1.5}
               className="animate-pulse-soft"
               style={{ animationDelay: `${i * 0.2}s` }}
@@ -59,19 +59,19 @@ export default function HeroVisual() {
             className="animate-pulse-soft"
             style={{ animationDelay: `${nodes.indexOf(n) * 0.3}s` }}
           >
-            <circle cx={n.x} cy={n.y} r={n.hero ? 26 : 22} fill="#0a0f1e" stroke={n.c} strokeWidth={2} />
+            <circle cx={n.x} cy={n.y} r={n.hero ? 26 : 22} fill="var(--color-surface)" stroke={n.c} strokeWidth={2} />
             <circle cx={n.x} cy={n.y} r={4} fill={n.c} />
             <text
               x={n.x}
               y={n.y + (n.hero ? 44 : 40)}
               textAnchor="middle"
               fontSize={n.hero ? 12 : 11}
-              fill="#F8FAFC"
+              fill="var(--color-text)"
               fontWeight={600}
             >
               {n.label}
             </text>
-            <text x={n.x} y={n.y + (n.hero ? 57 : 53)} textAnchor="middle" fontSize={9} fill="#748094">
+            <text x={n.x} y={n.y + (n.hero ? 57 : 53)} textAnchor="middle" fontSize={9} fill="var(--color-text-muted)">
               {n.sub}
             </text>
           </g>

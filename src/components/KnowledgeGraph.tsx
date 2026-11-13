@@ -216,7 +216,7 @@ export default function KnowledgeGraph() {
                   y1={a.y}
                   x2={b.x}
                   y2={b.y}
-                  stroke={active ? "#38D6B0" : "#273449"}
+                  stroke={active ? "var(--color-primary)" : "var(--color-border)"}
                   strokeWidth={active ? 2 : 1}
                   opacity={selected && !active ? 0.15 : 0.7}
                 />
@@ -239,7 +239,7 @@ export default function KnowledgeGraph() {
                 >
                   <circle
                     r={r}
-                    fill="#0a0f1e"
+                    fill="var(--color-surface)"
                     stroke={TYPE_COLOR[n.type]}
                     strokeWidth={isSel ? 3 : 2}
                   />
@@ -249,7 +249,7 @@ export default function KnowledgeGraph() {
                     y={r + 12}
                     textAnchor="middle"
                     fontSize={11}
-                    fill={isSel ? "#38D6B0" : "#A7B0C0"}
+                    fill={isSel ? "var(--color-primary)" : "var(--color-text-muted)"}
                   >
                     {n.label.length > 10 ? n.label.slice(0, 10) + "…" : n.label}
                   </text>

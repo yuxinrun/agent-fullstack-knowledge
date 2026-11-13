@@ -15,6 +15,31 @@
   --color-accent: #7c8cff;
   --color-border: #273449;
 
+  /* Theme-able extras (default = dark, overridden by :root[data-theme="light"]) */
+  --color-code-bg: #0a0f1e;
+  --color-code-text: #d7e0f0;
+  --color-heading: #e8edf7;
+  --color-strong: #f3f6fb;
+  --color-scrollbar-thumb: #2a3a55;
+  --color-scrollbar-thumb-hover: #36476a;
+  --color-selection: rgba(56, 214, 176, 0.28);
+  --color-selection-text: #ffffff;
+  --color-blockquote-bg: rgba(124, 140, 255, 0.06);
+  --color-glow-1: rgba(56, 214, 176, 0.16);
+  --color-glow-2: rgba(124, 140, 255, 0.14);
+  --color-glow-line: rgba(56, 214, 176, 0.5);
+  --color-card-hover-border: rgba(56, 214, 176, 0.45);
+  --shadow-card: 0 12px 32px rgba(4, 9, 20, 0.24);
+  --shadow-float: 0 20px 60px rgba(4, 9, 20, 0.42);
+  --tok-kw: #7c8cff;
+  --tok-str: #38d6b0;
+  --tok-com: #5f6b80;
+  --tok-num: #f0b86e;
+  --tok-fn: #8ad8ff;
+  --tok-type: #c79bff;
+
+  color-scheme: dark;
+
   /* Typography */
   --font-sans: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
     sans-serif;
@@ -39,6 +64,45 @@
   --radius-xl: 1.75rem;
 }
 
+/* ===== Light theme (护眼米白) ===== */
+:root[data-theme="light"] {
+  --color-bg: #f5f1e8;
+  --color-bg-secondary: #efe9dc;
+  --color-surface: #fffdf7;
+  --color-surface-2: #f1eadb;
+  --color-text: #2c2a25;
+  --color-text-secondary: #565249;
+  --color-text-muted: #7d776a;
+  --color-primary: #0f8a6d;
+  --color-accent: #4753bb;
+  --color-border: #ddd4c1;
+
+  --color-code-bg: #f9f4e8;
+  --color-code-text: #3b3a33;
+  --color-heading: #2c2a25;
+  --color-strong: #1f1e1a;
+  --color-scrollbar-thumb: #cbc2ad;
+  --color-scrollbar-thumb-hover: #b5aa92;
+  --color-selection: rgba(15, 138, 109, 0.22);
+  --color-selection-text: #1f1e1a;
+  --color-blockquote-bg: rgba(71, 83, 187, 0.07);
+  --color-glow-1: rgba(15, 138, 109, 0.10);
+  --color-glow-2: rgba(71, 83, 187, 0.08);
+  --color-glow-line: rgba(15, 138, 109, 0.35);
+  --color-card-hover-border: rgba(15, 138, 109, 0.40);
+  --shadow-card: 0 12px 32px rgba(90, 78, 55, 0.10);
+  --shadow-float: 0 20px 60px rgba(90, 78, 55, 0.18);
+
+  --tok-kw: #3a49b8;
+  --tok-str: #0b7a5f;
+  --tok-com: #8a8578;
+  --tok-num: #a25c12;
+  --tok-fn: #1b6f9c;
+  --tok-type: #7a3fb0;
+
+  color-scheme: light;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -57,11 +121,12 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
-  background: rgba(56, 214, 176, 0.28);
-  color: #fff;
+  background: var(--color-selection);
+  color: var(--color-selection-text);
 }
 
 a {
@@ -89,12 +154,12 @@ h6 {
   background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a3a55;
+  background: var(--color-scrollbar-thumb);
   border-radius: 999px;
   border: 2px solid var(--color-bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #36476a;
+  background: var(--color-scrollbar-thumb-hover);
 }
 
 /* Focus visibility */
@@ -126,24 +191,24 @@ h6 {
 
 .card-hover:hover {
   transform: translateY(-3px);
-  border-color: rgba(56, 214, 176, 0.45);
+  border-color: var(--color-card-hover-border);
 }
 
 /* Gradient glow (used sparingly) */
 .glow-primary {
   background: radial-gradient(
       120% 120% at 0% 0%,
-      rgba(56, 214, 176, 0.16),
+      var(--color-glow-1),
       transparent 55%
     ),
-    radial-gradient(120% 120% at 100% 0%, rgba(124, 140, 255, 0.14), transparent 55%);
+    radial-gradient(120% 120% at 100% 0%, var(--color-glow-2), transparent 55%);
 }
 
 .glow-line {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(56, 214, 176, 0.5),
+    var(--color-glow-line),
     transparent
   );
   height: 1px;
@@ -166,7 +231,7 @@ h6 {
   font-size: 1.25rem;
   margin-top: 1.8rem;
   margin-bottom: 0.6rem;
-  color: #e8edf7;
+  color: var(--color-heading);
 }
 .prose-content p {
   margin: 0.85rem 0;
@@ -194,26 +259,26 @@ h6 {
   background: var(--color-primary);
 }
 .prose-content strong {
-  color: #f3f6fb;
+  color: var(--color-strong);
   font-weight: 600;
 }
 .prose-content a.link {
   color: var(--color-primary);
-  border-bottom: 1px dashed rgba(56, 214, 176, 0.5);
+  border-bottom: 1px dashed var(--color-primary);
 }
 .prose-content blockquote {
   border-left: 3px solid var(--color-accent);
   padding: 0.4rem 0 0.4rem 1rem;
   margin: 1.2rem 0;
   color: var(--color-text-secondary);
-  background: rgba(124, 140, 255, 0.06);
+  background: var(--color-blockquote-bg);
   border-radius: 0 8px 8px 0;
 }
 
 /* Code block */
 .code-block {
   position: relative;
-  background: #0a0f1e;
+  background: var(--color-code-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -229,33 +294,33 @@ h6 {
 }
 .code-block code {
   font-family: inherit;
-  color: #d7e0f0;
+  color: var(--color-code-text);
 }
 
 /* Lightweight token colors */
 .tok-kw {
-  color: #7c8cff;
+  color: var(--tok-kw);
 }
 .tok-str {
-  color: #38d6b0;
+  color: var(--tok-str);
 }
 .tok-com {
-  color: #5f6b80;
+  color: var(--tok-com);
   font-style: italic;
 }
 .tok-num {
-  color: #f0b86e;
+  color: var(--tok-num);
 }
 .tok-fn {
-  color: #8ad8ff;
+  color: var(--tok-fn);
 }
 .tok-type {
-  color: #c79bff;
+  color: var(--tok-type);
 }
 
 /* Mermaid container */
 .mermaid-host {
-  background: #0a0f1e;
+  background: var(--color-code-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 1rem;
@@ -285,7 +350,7 @@ h6 {
 }
 .doc-table th {
   background: var(--color-surface-2);
-  color: #e8edf7;
+  color: var(--color-heading);
   font-weight: 600;
 }
 .doc-table td {
@@ -323,4 +388,17 @@ h6 {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Theme toggle: icon shown depends on current data-theme (no JS state needed) */
+.theme-icon-sun,
+.theme-icon-moon {
+  display: none;
+}
+:root:not([data-theme]) .theme-icon-sun,
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+:root[data-theme="light"] .theme-icon-moon {
+  display: block;
 }

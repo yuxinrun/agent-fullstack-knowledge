@@ -39,8 +39,8 @@ const config: Config = {
         pill: "999px",
       },
       boxShadow: {
-        card: "0 12px 32px rgba(4, 9, 20, 0.24)",
-        float: "0 20px 60px rgba(4, 9, 20, 0.42)",
+        card: "var(--shadow-card)",
+        float: "var(--shadow-float)",
       },
       keyframes: {
         "fade-up": {

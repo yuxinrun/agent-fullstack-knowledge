@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, X, Search, BookOpenCheck, Hexagon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useProgress } from "./ProgressProvider";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
   { label: "首页", href: "/" },
@@ -56,6 +57,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             href="/search"
             aria-label="全站搜索"

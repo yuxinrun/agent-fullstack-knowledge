@@ -3,6 +3,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ProgressProvider } from "@/components/ProgressProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+
+// 在 React 水合前同步应用主题，避免浅色/深色闪烁（FOUC）。
+const THEME_INIT = `(function(){try{var t=localStorage.getItem('eak:theme:v1');var d=t==='light'||t==='dark';var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;var s=d?t:(m?'light':'dark');document.documentElement.setAttribute('data-theme',s);}catch(e){}})();`;
 
 export const metadata: Metadata = {
   title: {
@@ -37,13 +41,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body>
-        <ProgressProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ProgressProvider>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
+        <ThemeProvider>
+          <ProgressProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ProgressProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

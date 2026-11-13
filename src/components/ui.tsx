@@ -19,7 +19,7 @@ interface ButtonProps {
 const variantCls: Record<ButtonVariant, string> = {
   primary:
     "bg-primary text-bg font-semibold hover:brightness-110 shadow-[0_8px_24px_rgba(56,214,176,0.25)]",
-  secondary: "bg-surface-2 text-ink hover:bg-[#26344f] border border-line",
+  secondary: "bg-surface-2 text-ink hover:bg-surface border border-line",
   ghost: "text-ink-secondary hover:text-ink hover:bg-surface-2",
   outline: "border border-primary/50 text-primary hover:bg-primary/10",
 };
