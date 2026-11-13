@@ -71,9 +71,22 @@ export interface TutorialSection {
   blocks: ContentBlock[];
 }
 
+// 参考资料类型：用于区分可信来源层级，避免把工程建议描述为行业标准
+export type ReferenceKind =
+  | "官方规范"
+  | "官方产品文档"
+  | "学术研究"
+  | "社区实践"
+  | "本站工程建议";
+
 export interface TutorialReference {
   title: string;
   url?: string;
+  organization?: string; // 发布组织或作者
+  version?: string; // 适用版本 / 发布日期
+  purpose?: string; // 参考用途
+  verifiedAt?: string; // 最后核验日期 YYYY-MM-DD
+  kind?: ReferenceKind;
 }
 
 export interface Tutorial {
@@ -90,11 +103,16 @@ export interface Tutorial {
   sections: TutorialSection[];
   tags: string[];
   architectureIds: string[];
-  relatedTutorialIds: string[];
+  relatedTutorialIds: string[]; // 值为 tutorial.slug
   references: TutorialReference[];
   updatedAt: string; // YYYY-MM-DD
   status: ContentStatus;
   featured?: boolean;
+  // V2.0 知识关联（全部可选，向后兼容旧数据）
+  nextTutorialSlugs?: string[]; // 下一步学习
+  relatedLabSlugs?: string[]; // 相关交互实验
+  relatedCaseSlugs?: string[]; // 相关企业案例
+  qualityLevel?: "L0" | "L1" | "L2" | "L3" | "L4" | "L5"; // 审计质量等级
 }
 
 // ---------------------------------------------------------------------------

@@ -35,9 +35,10 @@ import { solutionsTutorials } from "./solutions";
 import { ragAdvancedTutorials } from "./rag-advanced";
 import { multiAgentAdvancedTutorials } from "./multi-agent-advanced";
 import { securityAdvancedTutorials } from "./security-advanced";
+import { upgradedTutorials, applyUpgrades } from "./upgrades";
 
 // 教程数据统一汇总入口（后续领域在此追加）
-export const allTutorials: Tutorial[] = [
+const baseTutorials: Tutorial[] = [
   ...agentEngineeringTutorials,
   ...multiAgentTutorials,
   ...agentWorkflowTutorials,
@@ -57,6 +58,9 @@ export const allTutorials: Tutorial[] = [
   ...multiAgentAdvancedTutorials,
   ...securityAdvancedTutorials,
 ];
+
+// V2.0：按 slug 覆盖为深度升级版，保留原有顺序、URL 与全部基础资产
+export const allTutorials: Tutorial[] = applyUpgrades(baseTutorials, upgradedTutorials);
 
 export function getAllTutorials(): Tutorial[] {
   return allTutorials;

@@ -109,7 +109,7 @@ export const mcpTutorials: Tutorial[] = [
             language: "python",
             filename: "server.py",
             runnable: false,
-            code: `from mcp.server import Server
+            code: String.raw`from mcp.server import Server
 from mcp.types import Tool, TextContent
 
 app = Server("inventory")
@@ -229,7 +229,7 @@ if __name__ == "__main__":
     ],
     tags: ["MCP", "网关", "企业"],
     architectureIds: ["a06", "a15"],
-    relatedTutorialIds: ["mcp-fundamentals", "agent-security-fundamentals", "ai-platform-architecture"],
+    relatedTutorialIds: ["mcp-fundamentals", "ai-security-fundamentals", "ai-platform-architecture"],
     references: [],
     updatedAt: "2026-11-11",
     status: "published",

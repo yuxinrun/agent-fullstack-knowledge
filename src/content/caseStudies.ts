@@ -48,7 +48,7 @@ export const caseStudies: CaseStudy[] = [
     relatedTutorialSlugs: [
       "agent-execution-loop",
       "rag-fundamentals",
-      "mcp-server-development",
+      "mcp-server-dev",
       "human-approval",
       "agent-guardrails",
     ],
@@ -96,7 +96,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     caseType: "模拟教学案例",
     relatedDomains: ["d14", "d08", "d13", "d06", "d03"],
-    relatedTutorialSlugs: ["digital-twin-overview", "predictive-maintenance", "industrial-agent", "rag-fundamentals"],
+    relatedTutorialSlugs: ["digital-twin", "predictive-maintenance", "industrial-agent", "rag-fundamentals"],
     references: ["本案例为教学模拟数据，不含真实工厂信息"],
   },
   {
@@ -121,7 +121,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     caseType: "模拟教学案例",
     relatedDomains: ["d06", "d07", "d05"],
-    relatedTutorialSlugs: ["rag-fundamentals", "graphrag", "knowledge-graph"],
+    relatedTutorialSlugs: ["rag-fundamentals", "graphrag-advanced", "knowledge-graph"],
     references: ["教学模拟案例"],
   },
   {
@@ -147,7 +147,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     caseType: "模拟教学案例",
     relatedDomains: ["d09", "d08", "d06"],
-    relatedTutorialSlugs: ["semantic-layer-overview", "text-to-sql", "conversational-analytics"],
+    relatedTutorialSlugs: ["semantic-layer", "text-to-sql", "conversational-analytics"],
     references: ["教学模拟案例"],
   },
   {
@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     caseType: "模拟教学案例",
     relatedDomains: ["d13", "d15", "d03", "d11"],
-    relatedTutorialSlugs: ["business-process-automation", "human-approval", "agent-guardrails"],
+    relatedTutorialSlugs: ["automation-vs-agent", "human-approval", "agent-guardrails"],
     references: ["教学模拟案例"],
   },
   {
@@ -197,7 +197,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     caseType: "模拟教学案例",
     relatedDomains: ["d15", "d09", "d11", "d13"],
-    relatedTutorialSlugs: ["finance-agent", "semantic-layer-overview", "agent-guardrails"],
+    relatedTutorialSlugs: ["conversational-analytics", "semantic-layer", "agent-guardrails"],
     references: ["教学模拟案例"],
   },
   {

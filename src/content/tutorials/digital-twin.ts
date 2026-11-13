@@ -102,7 +102,7 @@ export const digitalTwinTutorials: Tutorial[] = [
     ],
     tags: ["Digital Twin", "维护", "预测"],
     architectureIds: ["a12"],
-    relatedTutorialIds: ["digital-twin", "industrial-agent", "anomaly-detection"],
+    relatedTutorialIds: ["digital-twin", "industrial-agent", "predictive-maintenance"],
     references: [],
     updatedAt: "2026-11-11",
     status: "published",

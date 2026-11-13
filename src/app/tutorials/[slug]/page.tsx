@@ -9,6 +9,8 @@ import {
   getRelatedTutorials,
   domains,
   architectures,
+  labs,
+  caseStudies,
 } from "@/content/tutorials";
 import { BlockRenderer } from "@/components/ContentBlockRenderer";
 import TutorialSidebar from "@/components/TutorialSidebar";
@@ -51,6 +53,15 @@ export default function TutorialPage({ params }: { params: { slug: string } }) {
   const relatedArch = tutorial.architectureIds
     .map((id) => architectures.find((a) => a.id === id))
     .filter(Boolean);
+  const nextTutorials = (tutorial.nextTutorialSlugs ?? [])
+    .map((s) => getTutorialBySlug(s))
+    .filter((t): t is NonNullable<typeof t> => Boolean(t));
+  const relatedLabs = (tutorial.relatedLabSlugs ?? [])
+    .map((s) => labs.find((l) => l.slug === s))
+    .filter((l): l is NonNullable<typeof l> => Boolean(l));
+  const relatedCases = (tutorial.relatedCaseSlugs ?? [])
+    .map((s) => caseStudies.find((c) => c.slug === s))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
     <div className="container-page py-8">
@@ -145,8 +156,15 @@ export default function TutorialPage({ params }: { params: { slug: string } }) {
           {/* 参考资料 */}
           {tutorial.references.length > 0 && (
             <div className="mt-10 rounded-xl border border-line bg-surface/40 p-5">
-              <div className="mb-2 text-sm font-semibold text-ink">参考资料</div>
-              <ul className="space-y-1 text-sm text-ink-secondary">
+              <div className="mb-3 flex items-center justify-between">
+                <div className="text-sm font-semibold text-ink">参考资料</div>
+                {tutorial.qualityLevel && (
+                  <span className="rounded-pill border border-line px-2 py-0.5 text-[10px] text-ink-muted">
+                    内容等级 {tutorial.qualityLevel}
+                  </span>
+                )}
+              </div>
+              <ul className="space-y-2 text-sm text-ink-secondary">
                 {tutorial.references.map((r, i) => (
                   <li key={i}>
                     {r.url ? (
@@ -154,13 +172,77 @@ export default function TutorialPage({ params }: { params: { slug: string } }) {
                         {r.title}
                       </a>
                     ) : (
-                      r.title
+                      <span>{r.title}</span>
+                    )}
+                    {[
+                      r.kind,
+                      r.organization,
+                      r.version ? `适用版本：${r.version}` : undefined,
+                      r.purpose,
+                      r.verifiedAt ? `核验：${r.verifiedAt}` : undefined,
+                    ].filter(Boolean).length > 0 && (
+                      <div className="mt-0.5 text-xs text-ink-muted">
+                        {[
+                          r.kind,
+                          r.organization,
+                          r.version ? `适用版本：${r.version}` : undefined,
+                          r.purpose,
+                          r.verifiedAt ? `核验：${r.verifiedAt}` : undefined,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </div>
                     )}
                   </li>
                 ))}
               </ul>
               <div className="mt-3 text-xs text-ink-muted">
                 最后更新：{formatDate(tutorial.updatedAt)}
+              </div>
+            </div>
+          )}
+
+          {/* 知识关联：下一步学习 / 相关实验 / 相关企业案例 */}
+          {(nextTutorials.length > 0 || relatedLabs.length > 0 || relatedCases.length > 0) && (
+            <div className="mt-8 rounded-xl border border-line bg-surface/40 p-5">
+              <div className="mb-3 text-sm font-semibold text-ink">知识关联</div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {nextTutorials.length > 0 && (
+                  <div>
+                    <div className="mb-2 text-xs text-ink-muted">下一步学习</div>
+                    <div className="space-y-1">
+                      {nextTutorials.map((t) => (
+                        <Link key={t.id} href={`/tutorials/${t.slug}`} className="block text-sm text-primary hover:underline">
+                          {t.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {relatedLabs.length > 0 && (
+                  <div>
+                    <div className="mb-2 text-xs text-ink-muted">相关交互实验</div>
+                    <div className="space-y-1">
+                      {relatedLabs.map((l) => (
+                        <Link key={l.id} href={`/labs/${l.slug}`} className="block text-sm text-primary hover:underline">
+                          {l.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {relatedCases.length > 0 && (
+                  <div>
+                    <div className="mb-2 text-xs text-ink-muted">相关企业案例</div>
+                    <div className="space-y-1">
+                      {relatedCases.map((c) => (
+                        <Link key={c.id} href={`/case-studies/${c.slug}`} className="block text-sm text-primary hover:underline">
+                          {c.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

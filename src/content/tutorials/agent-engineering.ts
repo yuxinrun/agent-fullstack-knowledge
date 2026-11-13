@@ -178,7 +178,7 @@ export const agentEngineeringTutorials: Tutorial[] = [
             language: "python",
             filename: "react_loop.py",
             runnable: false,
-            code: `from openai import OpenAI
+            code: String.raw`from openai import OpenAI
 
 client = OpenAI()
 tools = {
@@ -431,7 +431,7 @@ run("SKU A1 是否有货？")`,
             language: "typescript",
             filename: "runtime.ts",
             runnable: false,
-            code: `interface Tool {
+            code: String.raw`interface Tool {
   name: string;
   schema: object;
   run: (args: any) => Promise<{ ok: boolean; data: any }>;
@@ -562,7 +562,7 @@ class AgentRuntime {
             language: "json",
             filename: "tool.schema.json",
             runnable: false,
-            code: `{
+            code: String.raw`{
   "name": "create_ticket",
   "description": "在 ITSM 中创建故障工单",
   "parameters": {

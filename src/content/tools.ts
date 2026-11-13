@@ -17,7 +17,7 @@ export const tools: Tool[] = [
     description: "配置文档量、Chunk Size、Top-K、模型与查询量，估算索引与检索成本。",
     category: "RAG",
     component: "tool-rag-config",
-    relatedTutorialSlugs: ["chunking-strategy", "hybrid-search", "reranking", "rag-fundamentals"],
+    relatedTutorialSlugs: ["chunking-strategy", "hybrid-search", "rag-fundamentals"],
   },
   {
     id: "t03",
@@ -26,7 +26,7 @@ export const tools: Tool[] = [
     description: "基于输入/输出 Token、请求量、模型单价估算月度成本（价格为可维护配置）。",
     category: "成本",
     component: "tool-token-cost",
-    relatedTutorialSlugs: ["token-cost", "agentops-overview"],
+    relatedTutorialSlugs: ["agent-evaluation", "agentops-overview"],
   },
   {
     id: "t04",
@@ -44,7 +44,7 @@ export const tools: Tool[] = [
     description: "检查 MCP Server 的协议、工具设计、鉴权、错误处理与可观测性完备度。",
     category: "MCP",
     component: "tool-mcp-checklist",
-    relatedTutorialSlugs: ["mcp-server-development", "mcp-gateway", "mcp-fundamentals"],
+    relatedTutorialSlugs: ["mcp-server-dev", "mcp-gateway", "mcp-fundamentals"],
   },
   {
     id: "t06",
@@ -53,7 +53,7 @@ export const tools: Tool[] = [
     description: "逐项核对 Prompt Injection 防护、最小权限、护栏、审计等企业 Agent 安全要求。",
     category: "安全",
     component: "tool-security-checklist",
-    relatedTutorialSlugs: ["ai-security-overview", "prompt-injection", "agent-guardrails"],
+    relatedTutorialSlugs: ["ai-security-fundamentals", "prompt-injection", "agent-guardrails"],
   },
   {
     id: "t07",
@@ -71,7 +71,7 @@ export const tools: Tool[] = [
     description: "根据团队规模、合规、云环境推荐模型网关、向量库、编排与部署技术栈。",
     category: "选型",
     component: "tool-tech-stack",
-    relatedTutorialSlugs: ["ai-platform-overview", "model-gateway", "agent-runtime"],
+    relatedTutorialSlugs: ["ai-platform-architecture", "model-gateway", "agent-runtime"],
   },
   {
     id: "t09",
@@ -89,7 +89,7 @@ export const tools: Tool[] = [
     description: "按业务目标（客服/运维/分析/自动化）生成企业 AI 架构建议与组件清单。",
     category: "架构",
     component: "tool-architecture-generator",
-    relatedTutorialSlugs: ["enterprise-agent-architecture", "ai-platform-overview", "enterprise-solutions-overview"],
+    relatedTutorialSlugs: ["enterprise-agent-architecture", "ai-platform-architecture", "itops-agent"],
   },
 ];
 

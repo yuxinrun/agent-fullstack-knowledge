@@ -197,7 +197,7 @@ export const ragTutorials: Tutorial[] = [
     ],
     tags: ["RAG", "检索", "Rerank"],
     architectureIds: ["a08"],
-    relatedTutorialIds: ["rag-fundamentals", "chunking-strategy", "rag-fundamentals"],
+    relatedTutorialIds: ["rag-fundamentals", "chunking-strategy"],
     references: [],
     updatedAt: "2026-11-11",
     status: "published",

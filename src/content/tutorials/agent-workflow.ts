@@ -128,7 +128,7 @@ export const agentWorkflowTutorials: Tutorial[] = [
             language: "typescript",
             filename: "workflow.ts",
             runnable: false,
-            code: `type State = "start" | "check" | "decide" | "done" | "failed";
+            code: String.raw`type State = "start" | "check" | "decide" | "done" | "failed";
 const transitions: Record<State, State[]> = {
   start: ["check"],
   check: ["decide", "failed"],

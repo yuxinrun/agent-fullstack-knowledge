@@ -36,7 +36,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "工作流引擎驱动 DAG/状态机，Agent 作为可恢复的子流程节点参与，必要时触发人工审批。",
     uses: ["混合可控流程", "Human-in-the-loop"],
     relatedTerms: ["Workflow", "Agent", "Human-in-the-loop"],
-    relatedTutorialSlugs: ["agentic-workflow", "workflow-vs-agent"],
+    relatedTutorialSlugs: ["workflow-vs-agent"],
     distinguishes:
       "Agentic Workflow 不等于纯 Agent：前者主体仍是确定性流程，Agent 只在指定节点决策；后者完全由循环驱动。",
   },
@@ -62,7 +62,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "MCP 定义 Host/Client/Server 与 Tools/Resources/Prompts 原语，通过 JSON-RPC 传输完成能力发现与调用。",
     uses: ["统一工具接入", "企业系统集成", "能力复用"],
     relatedTerms: ["Tools", "Resources", "Agent", "Tool Calling"],
-    relatedTutorialSlugs: ["mcp-fundamentals", "mcp-server-development", "mcp-gateway"],
+    relatedTutorialSlugs: ["mcp-fundamentals", "mcp-server-dev", "mcp-gateway"],
     distinguishes:
       "MCP 不等于 Agent 本身：MCP 是连接协议/传输层，Agent 是决策主体；MCP 也不等于 Function Calling——Function Calling 是模型能力，MCP 是其底层能力的标准化承载方式之一。",
   },
@@ -88,7 +88,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "从文档抽取实体关系构建图谱，生成图社区层次化摘要，用 Map-Reduce 回答全局性问题。",
     uses: ["多跳推理", "全局摘要", "复杂关系问答"],
     relatedTerms: ["RAG", "Knowledge Graph", "Ontology"],
-    relatedTutorialSlugs: ["graphrag", "knowledge-graph"],
+    relatedTutorialSlugs: ["graphrag-advanced", "knowledge-graph"],
     distinguishes:
       "GraphRAG 不等于普通向量检索：它在向量检索之外增加了图遍历与社区聚合，更擅长跨实体关系推理。",
   },
@@ -101,7 +101,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "通过类、属性、关系与约束定义统一语义模型，是知识图谱的骨架。",
     uses: ["统一术语", "知识建模", "推理基础"],
     relatedTerms: ["Taxonomy", "Knowledge Graph", "RDF"],
-    relatedTutorialSlugs: ["ontology-modeling", "knowledge-engineering-overview"],
+    relatedTutorialSlugs: ["ontology-taxonomy"],
     distinguishes:
       "Ontology 比 Taxonomy 更强：Taxonomy 仅定义层级分类，Ontology 还定义属性与关系约束。",
   },
@@ -114,7 +114,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "由实体节点与关系边构成，结合本体约束，支持图遍历、子图推理与 GraphRAG。",
     uses: ["实体关联", "推理", "推荐"],
     relatedTerms: ["Ontology", "GraphRAG", "RDF"],
-    relatedTutorialSlugs: ["knowledge-graph", "graphrag"],
+    relatedTutorialSlugs: ["knowledge-graph", "graphrag-advanced"],
   },
   {
     id: "g-context-engineering",
@@ -138,7 +138,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "把底层表字段映射为业务指标与维度定义，供 BI 与 Text-to-SQL 复用统一口径。",
     uses: ["统一指标", "对话式分析", "BI 一致性"],
     relatedTerms: ["Text-to-SQL", "Metrics", "BI"],
-    relatedTutorialSlugs: ["semantic-layer-overview", "text-to-sql"],
+    relatedTutorialSlugs: ["semantic-layer", "text-to-sql"],
   },
   {
     id: "g-agentops",
@@ -171,7 +171,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "通过策略引擎与校验器对输入、工具调用与输出进行过滤、改写或阻断。",
     uses: ["防注入", "输出校验", "合规"],
     relatedTerms: ["Prompt Injection", "Policy", "Audit"],
-    relatedTutorialSlugs: ["agent-guardrails", "ai-security-overview", "prompt-injection"],
+    relatedTutorialSlugs: ["agent-guardrails", "ai-security-fundamentals", "prompt-injection"],
   },
   {
     id: "g-tool-calling",
@@ -195,7 +195,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "攻击者把恶意指令混入用户文本或检索内容，诱导模型忽略原指令并执行攻击者意图。",
     uses: ["需防御的安全威胁"],
     relatedTerms: ["Guardrails", "Indirect Prompt Injection", "Sandbox"],
-    relatedTutorialSlugs: ["prompt-injection", "ai-security-overview", "agent-guardrails"],
+    relatedTutorialSlugs: ["prompt-injection", "ai-security-fundamentals", "agent-guardrails"],
   },
   {
     id: "g-react",
@@ -228,7 +228,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "分为短期/工作、语义、情景、程序性记忆，按需检索并注入上下文。",
     uses: ["跨会话连续性", "个性化"],
     relatedTerms: ["Context Engineering", "Semantic Memory", "Agent"],
-    relatedTutorialSlugs: ["memory-architecture", "context-engineering", "semantic-memory"],
+    relatedTutorialSlugs: ["memory-architecture", "context-engineering", "memory-types"],
   },
   {
     id: "g-embedding",
@@ -261,7 +261,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "分别执行向量检索与 BM25 类检索，按分数归一化或重排模型合并。",
     uses: ["提升召回", "兼顾语义与关键词"],
     relatedTerms: ["RAG", "Reranking", "Vector Database"],
-    relatedTutorialSlugs: ["hybrid-search", "reranking", "rag-fundamentals"],
+    relatedTutorialSlugs: ["hybrid-search", "rag-fundamentals"],
   },
   {
     id: "g-reranking",
@@ -272,7 +272,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "以跨编码器（cross-encoder）或大模型对 query 与候选逐对打分重排。",
     uses: ["提升精度", "降低噪声"],
     relatedTerms: ["Hybrid Search", "RAG"],
-    relatedTutorialSlugs: ["reranking", "hybrid-search"],
+    relatedTutorialSlugs: ["hybrid-search"],
   },
   {
     id: "g-text-to-sql",
@@ -283,7 +283,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "结合语义层与数据库 Schema 生成 SQL，经校验后在数仓执行并返回结果。",
     uses: ["对话式分析", "自助查询"],
     relatedTerms: ["Semantic Layer", "BI", "Conversational Analytics"],
-    relatedTutorialSlugs: ["text-to-sql", "semantic-layer-overview", "conversational-analytics"],
+    relatedTutorialSlugs: ["text-to-sql", "semantic-layer", "conversational-analytics"],
   },
   {
     id: "g-digital-twin",
@@ -294,7 +294,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "融合传感器实时数据与物理模型，持续同步并支持仿真与优化。",
     uses: ["预测性维护", "生产优化", "仿真"],
     relatedTerms: ["IIoT", "Agent", "Predictive Maintenance"],
-    relatedTutorialSlugs: ["digital-twin-overview", "predictive-maintenance", "industrial-agent"],
+    relatedTutorialSlugs: ["digital-twin", "predictive-maintenance", "industrial-agent"],
   },
   {
     id: "g-hitl",
@@ -305,7 +305,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "Agent 在遇到高风险动作、低置信度或政策要求时暂停，交由人工审批后继续。",
     uses: ["风险控制", "合规", "质量保障"],
     relatedTerms: ["Agent", "Workflow", "Approval"],
-    relatedTutorialSlugs: ["human-approval", "agentic-workflow", "agent-guardrails"],
+    relatedTutorialSlugs: ["human-approval", "workflow-vs-agent", "agent-guardrails"],
   },
   {
     id: "g-supervisor",
@@ -327,7 +327,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "以状态机或 DAG 表达流程，引擎按节点顺序与条件驱动执行。",
     uses: ["可控流程", "审批", "批量处理"],
     relatedTerms: ["Agentic Workflow", "DAG", "State Machine"],
-    relatedTutorialSlugs: ["workflow-vs-agent", "agentic-workflow", "human-approval"],
+    relatedTutorialSlugs: ["workflow-vs-agent", "human-approval"],
     distinguishes:
       "Workflow 不等于 Agent：Workflow 每一步是预定义的，Agent 的步骤由模型动态决策。",
   },
@@ -340,7 +340,7 @@ export const glossary: GlossaryTerm[] = [
     howItWorks: "节点表示任务，边表示依赖；引擎按拓扑序并行或串行执行无环依赖。",
     uses: ["数据管道", "工作流依赖"],
     relatedTerms: ["Workflow", "State Machine"],
-    relatedTutorialSlugs: ["agentic-workflow", "workflow-vs-agent"],
+    relatedTutorialSlugs: ["workflow-vs-agent"],
   },
 ];
 
