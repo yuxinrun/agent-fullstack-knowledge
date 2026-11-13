@@ -74,7 +74,7 @@ export default function TutorialPage({ params }: { params: { slug: string } }) {
         ]}
       />
 
-      <div className="mt-6 grid gap-10 lg:grid-cols-[16rem_1fr_18rem]">
+      <div className="mt-6 grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)_16rem] xl:grid-cols-[16rem_minmax(0,1fr)_17rem]">
         <TutorialSidebar
           slug={tutorial.slug}
           sections={tutorial.sections.map((s) => ({ id: s.id, heading: s.heading }))}

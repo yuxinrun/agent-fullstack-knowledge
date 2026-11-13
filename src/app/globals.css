@@ -52,8 +52,8 @@
   --text-3xl: 2.75rem;
 
   /* Layout */
-  --container-width: 1200px;
-  --page-gutter: clamp(1.125rem, 4vw, 3.5rem);
+  --container-width: 1440px;
+  --page-gutter: clamp(1.125rem, 3vw, 2.5rem);
   --section-space: clamp(4rem, 8vw, 7rem);
   --grid-gap: 1.25rem;
 
